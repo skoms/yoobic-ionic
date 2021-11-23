@@ -1,0 +1,7 @@
+{
+  "name": "yoobic-ionic-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
