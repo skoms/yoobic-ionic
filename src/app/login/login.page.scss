@@ -1,0 +1,81 @@
+ion-content {
+  height: 100%;
+  --background: #e9ecf4;
+  color: black;
+  text-align: center;
+
+  ion-thumbnail {
+    height: 80px;
+    width: 80px;
+    margin: 10vh auto 0 auto;
+
+    ion-img {
+      border-radius: 50%;
+    }
+  }
+
+  h3 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+
+  .forgot-pass {
+    text-align: end;
+    margin-top: 0.5rem;
+    margin-left: -2rem;
+    width: 100%;
+    color: black;
+    opacity: 0.4;
+  }
+}
+
+.login-inputs ion-item {
+  --background: #fff;
+  margin: 1px 20px;
+
+  ion-icon {
+    color: rgb(170, 170, 170);
+    font-size: 24px;
+  }
+
+  ion-input {
+    --placeholder-opacity: 1;
+  }
+}
+
+.sign-in-methods {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .facebook-login-button {
+    margin-top: -0.8rem;
+    ion-icon {
+      font-size: 32px;
+      opacity: 0.5;
+    }
+  }
+
+  ion-buttons {
+    margin-top: 1rem;
+
+    ion-button {
+      --padding-top: 1.2rem;
+      --padding-end: 2rem;
+      --padding-bottom: 1.2rem;
+      --padding-start: 2rem;
+      font-size: 1.2rem;
+      margin: 0 0.5rem;
+    }
+
+    ion-button:last-child {
+      --box-shadow: black 0 2px 5px;
+    }
+  }
+}

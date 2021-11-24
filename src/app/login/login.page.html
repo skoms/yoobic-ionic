@@ -1,0 +1,43 @@
+<ion-content forceOverscroll="false">
+  <ion-thumbnail>
+    <ion-img
+      src="https://via.placeholder.com/150"
+      alt="Profile Thumbnail"
+    ></ion-img>
+  </ion-thumbnail>
+  <h3>Sign In</h3>
+  <div class="login-inputs">
+    <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="mail-outline"></ion-icon>
+      </ion-label>
+      <ion-input id="email" placeholder="E-Mail" clearInput="true"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-label>
+      <ion-input
+        id="email"
+        placeholder="Password"
+        type="password"
+        clearInput
+      ></ion-input>
+    </ion-item>
+    <a class="forgot-pass">forgot password?</a>
+  </div>
+  <div class="sign-in-methods">
+    <p>Sign In with</p>
+    <ion-button fill="none" class="facebook-login-button">
+      <ion-icon name="logo-facebook"></ion-icon
+    ></ion-button>
+    <ion-buttons>
+      <ion-button expand="block" fill="outline" color="dark" shape="round"
+        >Sign Up</ion-button
+      >
+      <ion-button expand="block" fill="solid" color="dark" shape="round"
+        >Sign In</ion-button
+      >
+    </ion-buttons>
+  </div>
+</ion-content>

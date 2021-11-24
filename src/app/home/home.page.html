@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="side-menu">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="side-menu" class="side-menu" contentId="main">
+  <ion-header>
+    <ion-thumbnail>
+      <ion-img
+        src="https://via.placeholder.com/150"
+        alt="Profile Thumbnail"
+      ></ion-img>
+    </ion-thumbnail>
+  </ion-header>
+
+  <ion-content forceOverscroll="false">
+    <ion-list lines="none">
+      <ion-item button detail="false">
+        <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+        <ion-label>
+          <h3>Dashboard</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item button detail="false">
+        <ion-icon slot="start" name="images-outline"></ion-icon>
+        <ion-label>
+          <h3>Photos</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item button detail="false">
+        <ion-icon slot="start" name="cube-outline"></ion-icon>
+        <ion-label>
+          <h3>Available Missions</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item button detail="false">
+        <ion-icon slot="start" name="checkbox-outline"></ion-icon>
+        <ion-label>
+          <h3>My Missions</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item button detail="false">
+        <ion-icon slot="start" name="chatbox-outline"></ion-icon>
+        <ion-label>
+          <h3>Chat</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer>
+    <ion-icon name="power" size="large"></ion-icon>
+  </ion-footer>
+</ion-menu>
+
+<ion-content id="main"> </ion-content>

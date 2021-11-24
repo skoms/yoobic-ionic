@@ -1,0 +1,34 @@
+$gray: #444;
+
+.side-menu {
+  backdrop-filter: blur(5px);
+}
+
+.side-menu::part(container) {
+  border-right: $gray solid 2px;
+}
+
+.side-menu ion-thumbnail {
+  margin: 10vh auto;
+
+  ion-img {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+  }
+}
+
+.side-menu ion-list {
+  margin-left: 20vw;
+
+  ion-item {
+    margin: 0 0 3vh 0;
+  }
+}
+
+ion-footer {
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
