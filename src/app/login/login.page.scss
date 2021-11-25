@@ -1,6 +1,12 @@
 ion-content {
   height: 100%;
-  --background: var(--ion-color-secondary);
+  --background: linear-gradient(
+    -45deg,
+    var(--ion-color-secondary),
+    var(--ion-color-tertiary-shade),
+    var(--ion-color-secondary),
+    var(--ion-color-tertiary-shade)
+  );
   color: var(--ion-color-secondary-contrast);
   text-align: center;
 
@@ -25,28 +31,39 @@ ion-content {
 .login-inputs {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   .forgot-pass {
     text-align: end;
     margin-top: 0.5rem;
     margin-left: -2rem;
     width: 100%;
-    color: var(--ion-color-medium);
+    color: var(--ion-color-medium-shade);
   }
 }
 
 .login-inputs ion-item {
   --background: white;
   margin: 1px 20px;
+  width: 90%;
+  max-width: 400px;
 
   ion-icon {
-    color: var(--ion-color-medium);
+    color: var(--ion-color-medium-shade);
     font-size: 24px;
   }
 
   ion-input {
     --placeholder-opacity: 1;
   }
+}
+
+.login-inputs ion-item:nth-child(2n + 1) {
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.login-inputs ion-item:nth-child(2n) {
+  border-radius: 0 0 0.75rem 0.75rem;
 }
 
 .sign-in-methods {
@@ -57,6 +74,7 @@ ion-content {
 
   .facebook-login-button {
     margin-top: -0.8rem;
+    --background: none;
     ion-icon {
       font-size: 32px;
       opacity: 0.5;
@@ -71,22 +89,33 @@ ion-content {
       --padding-end: 2rem;
       --padding-bottom: 1.2rem;
       --padding-start: 2rem;
+      --border-radius: 0.75rem 0 0 0.75rem;
       font-size: 1.2rem;
-      margin: 0 0.5rem;
+      margin: 0 0.1rem;
     }
 
     ion-button:last-child {
-      --box-shadow: black 0 2px 5px;
+      --border-radius: 0 0.75rem 0.75rem 0;
+      --padding-top: 1.25rem;
+      --padding-bottom: 1.25rem;
     }
   }
 }
 
-.ion-no-border {
-  background: var(--ion-color-secondary);
-  min-height: 4vh;
+ion-footer.ion-no-border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    90deg,
+    var(--ion-color-medium-tint),
+    var(--ion-color-tertiary-shade)
+  );
+  min-height: 5vh;
   text-align: center;
 
   a {
-    color: var(--ion-color-medium);
+    color: var(--ion-color-light);
+    text-shadow: var(--ion-color-medium-shade) 1px 1px 4px;
   }
 }
