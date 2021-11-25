@@ -1,16 +1,18 @@
 ion-content {
   height: 100%;
-  --background: #e9ecf4;
-  color: black;
+  --background: var(--ion-color-secondary);
+  color: var(--ion-color-secondary-contrast);
   text-align: center;
 
   ion-thumbnail {
     height: 80px;
     width: 80px;
-    margin: 10vh auto 0 auto;
+    margin: 8vh auto 0 auto;
 
     ion-img {
       border-radius: 50%;
+      padding: 0.3rem;
+      background: white;
     }
   }
 
@@ -29,17 +31,16 @@ ion-content {
     margin-top: 0.5rem;
     margin-left: -2rem;
     width: 100%;
-    color: black;
-    opacity: 0.4;
+    color: var(--ion-color-medium);
   }
 }
 
 .login-inputs ion-item {
-  --background: #fff;
+  --background: white;
   margin: 1px 20px;
 
   ion-icon {
-    color: rgb(170, 170, 170);
+    color: var(--ion-color-medium);
     font-size: 24px;
   }
 
@@ -77,5 +78,15 @@ ion-content {
     ion-button:last-child {
       --box-shadow: black 0 2px 5px;
     }
+  }
+}
+
+.ion-no-border {
+  background: var(--ion-color-secondary);
+  min-height: 4vh;
+  text-align: center;
+
+  a {
+    color: var(--ion-color-medium);
   }
 }

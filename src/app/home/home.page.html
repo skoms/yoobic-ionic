@@ -1,11 +1,18 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="header-toolbar">
     <ion-buttons slot="start">
       <ion-menu-button menu="side-menu">
         <ion-icon name="menu-outline"></ion-icon>
       </ion-menu-button>
     </ion-buttons>
-    <ion-title>home</ion-title>
+    <ion-title>
+      <ion-img src="../../assets/images/logo.png"></ion-img>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon class="options-icon" name="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,40 +20,48 @@
   <ion-header>
     <ion-thumbnail>
       <ion-img
-        src="https://via.placeholder.com/150"
+        src="../../assets/images/me.jpg"
         alt="Profile Thumbnail"
       ></ion-img>
     </ion-thumbnail>
   </ion-header>
 
-  <ion-content forceOverscroll="false">
+  <ion-content forceOverscroll="false" color="tertiary">
     <ion-list lines="none">
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+      <ion-item button detail="false" color="tertiary">
+        <ion-icon
+          color="medium"
+          slot="start"
+          name="clipboard-outline"
+        ></ion-icon>
         <ion-label>
           <h3>Dashboard</h3>
         </ion-label>
       </ion-item>
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="images-outline"></ion-icon>
+      <ion-item button detail="false" color="tertiary">
+        <ion-icon color="medium" slot="start" name="images-outline"></ion-icon>
         <ion-label>
           <h3>Photos</h3>
         </ion-label>
       </ion-item>
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="cube-outline"></ion-icon>
+      <ion-item button detail="false" color="tertiary">
+        <ion-icon color="medium" slot="start" name="cube-outline"></ion-icon>
         <ion-label>
           <h3>Available Missions</h3>
         </ion-label>
       </ion-item>
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="checkbox-outline"></ion-icon>
+      <ion-item button detail="false" color="tertiary">
+        <ion-icon
+          color="medium"
+          slot="start"
+          name="checkbox-outline"
+        ></ion-icon>
         <ion-label>
           <h3>My Missions</h3>
         </ion-label>
       </ion-item>
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="chatbox-outline"></ion-icon>
+      <ion-item button detail="false" color="tertiary">
+        <ion-icon color="medium" slot="start" name="chatbox-outline"></ion-icon>
         <ion-label>
           <h3>Chat</h3>
         </ion-label>
@@ -55,8 +70,24 @@
   </ion-content>
 
   <ion-footer>
-    <ion-icon name="power" size="large"></ion-icon>
+    <ion-icon name="power" size="large" color="medium"></ion-icon>
   </ion-footer>
 </ion-menu>
 
-<ion-content id="main"> </ion-content>
+<ion-content id="main">
+  <ion-tabs>
+    <ion-tab-bar slot="top" class="tab-bar">
+      <ion-tab-button tab="missions">
+        <ion-label>MISSIONS</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="notes">
+        <ion-label>NOTES</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="request">
+        <ion-label>REQUEST</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

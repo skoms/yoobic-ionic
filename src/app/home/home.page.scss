@@ -1,25 +1,55 @@
-$gray: #444;
-
-.side-menu {
-  backdrop-filter: blur(5px);
+/* Header styling */
+ion-toolbar {
+  --border-style: none;
 }
 
-.side-menu::part(container) {
-  border-right: $gray solid 2px;
+.header-toolbar {
+  ion-img {
+    height: 44px;
+  }
+
+  .options-icon {
+    transform: rotate(90deg);
+    font-size: 32px;
+  }
+}
+
+/* Tab and content styling */
+ion-content {
+  --background: var(--ion-color-tertiary);
+}
+
+.tab-bar {
+  height: 2.5rem;
+
+  ion-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Side Menu styling */
+.side-menu {
+  --background: var(--ion-color-tertiary);
+}
+
+.side-menu::part(backdrop) {
+  background: none;
 }
 
 .side-menu ion-thumbnail {
   margin: 10vh auto;
 
   ion-img {
-    height: 8vh;
-    width: 8vh;
+    height: 12vh;
+    width: 12vh;
+    margin-left: -6vw; // Minus 50% of width to center
     border-radius: 50%;
   }
 }
 
 .side-menu ion-list {
   margin-left: 20vw;
+  background: var(--ion-color-tertiary);
 
   ion-item {
     margin: 0 0 3vh 0;
