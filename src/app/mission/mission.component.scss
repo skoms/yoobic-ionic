@@ -1,0 +1,68 @@
+.mission {
+  background: white;
+  max-width: 95vw;
+  margin-top: 1rem;
+
+  .header-section {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    display: flex;
+
+    .profile-picture {
+      ion-img {
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+        border: var(--ion-color-tertiary-shade) solid 1px;
+        background: var(--ion-color-tertiary);
+      }
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0 0.5rem;
+
+      p {
+        margin: 0.5rem 0 -0.4rem 0;
+      }
+
+      .left-side {
+        text-align: left;
+      }
+
+      .right-side {
+        text-align: right;
+      }
+    }
+
+    .location,
+    .date,
+    .distance {
+      color: var(--ion-color-medium);
+    }
+  }
+
+  .image-section {
+    min-width: 100%;
+  }
+
+  .image-section ion-img {
+    min-width: 100%;
+    border: var(--ion-color-tertiary-shade) solid 1px;
+    background: var(--ion-color-tertiary);
+  }
+
+  .description-section {
+    padding: 1rem;
+
+    .title {
+      margin: 0.3rem 0;
+    }
+
+    .description {
+      margin: 0;
+    }
+  }
+}
