@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +8,22 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  constructor(private location: Location, private auth: AuthService) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   async ngOnInit() {
+    await this.auth.initStorage();
     await this.goIfLoggedIn();
   }
 
+  public signIn(email: string, password: string) {
+    this.auth.signIn(email, password);
+  }
+
   private async goIfLoggedIn(): Promise<void> {
-    if (await this.auth.getLoginStatus()) {
-      this.location.go('/dashboard');
-    }
+    await this.auth.getLoginStatus().then((res) => {
+      if (res) {
+        this.router.navigateByUrl('/dashboard/missions');
+      }
+    });
   }
 }
