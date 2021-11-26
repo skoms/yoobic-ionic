@@ -5,7 +5,7 @@ export interface Mission {
   name: string;
   location: string;
   company: string;
-  rating: number;
+  rating: RatingObject;
   date: string;
   distance: string;
   picture: string;
@@ -18,6 +18,13 @@ interface Description {
   details: string;
 }
 
+export interface RatingObject {
+  decimal: number;
+  filled?: string[];
+  halfFilled?: string[];
+  empty?: string[];
+}
+
 export const MISSIONS: Mission[] = [
   {
     id: undefined,
@@ -25,7 +32,7 @@ export const MISSIONS: Mission[] = [
     name: 'Andreas Skomsøy',
     location: 'London, England',
     company: 'Yoobic',
-    rating: 3,
+    rating: { decimal: 3.5 },
     date: '25 Nov 2021',
     distance: '2 MILES',
     picture: '../../assets/images/mission.jpg',
@@ -43,7 +50,7 @@ export const MISSIONS: Mission[] = [
     name: 'Andreas Skomsøy',
     location: 'London, England',
     company: 'Yoobic',
-    rating: 3,
+    rating: { decimal: 2 },
     date: '25 Nov 2021',
     distance: '2 MILES',
     picture: '../../assets/images/mission.jpg',
@@ -61,7 +68,7 @@ export const MISSIONS: Mission[] = [
     name: 'Andreas Skomsøy',
     location: 'London, England',
     company: 'Yoobic',
-    rating: 3,
+    rating: { decimal: 5 },
     date: '25 Nov 2021',
     distance: '2 MILES',
     picture: '../../assets/images/mission.jpg',
@@ -79,7 +86,7 @@ export const MISSIONS: Mission[] = [
     name: 'Andreas Skomsøy',
     location: 'London, England',
     company: 'Yoobic',
-    rating: 3,
+    rating: { decimal: 4.5 },
     date: '25 Nov 2021',
     distance: '2 MILES',
     picture: '../../assets/images/mission.jpg',
@@ -97,7 +104,7 @@ export const MISSIONS: Mission[] = [
     name: 'Andreas Skomsøy',
     location: 'London, England',
     company: 'Yoobic',
-    rating: 3,
+    rating: { decimal: 4.3 },
     date: '25 Nov 2021',
     distance: '2 MILES',
     picture: '../../assets/images/mission.jpg',
@@ -115,7 +122,7 @@ export const MISSIONS: Mission[] = [
     name: 'Andreas Skomsøy',
     location: 'London, England',
     company: 'Yoobic',
-    rating: 3,
+    rating: { decimal: 3.6 },
     date: '25 Nov 2021',
     distance: '2 MILES',
     picture: '../../assets/images/mission.jpg',

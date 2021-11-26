@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Mission } from '../missions';
+import { Mission, RatingObject } from '../missions';
 import { MissionService } from '../services/mission.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { MissionService } from '../services/mission.service';
   styleUrls: ['./mission-details.page.scss'],
 })
 export class MissionDetailsPage implements OnInit {
+  @ViewChild('#starRating') starRating: ElementRef;
   mission?: Mission;
   constructor(
     private missionService: MissionService,
@@ -23,28 +24,43 @@ export class MissionDetailsPage implements OnInit {
   public getMission(id: number) {
     this.missionService
       .getMission(id)
-      .then((res) => res.subscribe((m) => (this.mission = m)));
+      .then((res) => res.subscribe((m) => (this.mission = m)))
+      .then(() => (this.mission.rating = this.getRatingStars()));
   }
 
-  public getRatingStars() {
-    let rating = this.mission.rating;
-    let starDiv = '<div class="rating-stars">';
-    let starCount = 0;
-    while (rating >= 0.5 && starCount < 5) {
-      if (rating > 1) {
-        starDiv += '<ion-icon name="star"></ion-icon>';
-        starCount++;
-        rating -= 1;
-      } else if (rating > 0.5) {
-        starDiv += '<ion-icon name="star-half"></ion-icon>';
-        starCount++;
-        rating -= 0.5;
-      } else {
-        starDiv += '<ion-icon name="star-outline"></ion-icon>';
-        starCount++;
+  public getRatingStars(): RatingObject {
+    if (
+      !this.mission.rating.filled &&
+      !this.mission.rating.halfFilled &&
+      !this.mission.rating.empty
+    ) {
+      let rating = this.mission.rating.decimal;
+      let starCount = 0;
+
+      let filled = 0;
+      let halfFilled = 0;
+      let empty = 0;
+
+      while (starCount < 5) {
+        if (rating >= 1) {
+          filled++;
+          starCount++;
+          rating -= 1;
+        } else if (rating >= 0.5) {
+          halfFilled++;
+          starCount++;
+          rating -= 0.5;
+        } else {
+          empty++;
+          starCount++;
+        }
       }
+      return {
+        decimal: this.mission.rating.decimal,
+        filled: new Array(filled).fill('*'),
+        halfFilled: new Array(halfFilled).fill('*'),
+        empty: new Array(empty).fill('*'),
+      };
     }
-    starDiv += '</div>';
-    return starDiv;
   }
 }
