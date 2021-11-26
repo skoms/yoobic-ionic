@@ -1,3 +1,17 @@
 ion-content {
   --background: translucent;
+
+  .feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .no-more-content {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

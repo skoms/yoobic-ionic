@@ -1,3 +1,24 @@
-<ion-content>
-  <app-mission></app-mission>
+<ion-content class="content">
+  <div class="feed">
+    <app-mission
+      *ngFor="let mission of missions"
+      [mission]="mission"
+    ></app-mission>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore()">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <div
+    class="no-more-content"
+    *ngIf="infiniteScroll && infiniteScroll.disabled"
+  >
+    <p>There are no more available Missions</p>
+    <ion-button (click)="backToTop()"> Go back to the top </ion-button>
+  </div>
 </ion-content>

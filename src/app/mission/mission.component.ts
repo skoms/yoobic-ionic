@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Mission } from '../missions';
 
 @Component({
   selector: 'app-mission',
@@ -6,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mission.component.scss'],
 })
 export class MissionComponent implements OnInit {
-
-  constructor() { }
+  @Input() mission: Mission;
+  constructor() {}
 
   ngOnInit() {}
-
 }
