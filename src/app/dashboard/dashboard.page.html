@@ -18,17 +18,22 @@
 
 <ion-menu side="start" menuId="side-menu" class="side-menu" contentId="main">
   <ion-header class="ion-no-border">
-    <ion-thumbnail>
+    <ion-avatar>
       <ion-img
         src="../../assets/images/me.jpg"
         alt="Profile Thumbnail"
       ></ion-img>
-    </ion-thumbnail>
+    </ion-avatar>
   </ion-header>
 
   <ion-content forceOverscroll="false" color="tertiary">
     <ion-list lines="none">
-      <ion-item button detail="false" color="tertiary">
+      <ion-item
+        button
+        detail="false"
+        color="tertiary"
+        (click)="goTo('/dashboard/missions')"
+      >
         <ion-icon
           color="medium"
           slot="start"
@@ -38,18 +43,21 @@
           <h3>Dashboard</h3>
         </ion-label>
       </ion-item>
+
       <ion-item button detail="false" color="tertiary">
         <ion-icon color="medium" slot="start" name="images-outline"></ion-icon>
         <ion-label>
           <h3>Photos</h3>
         </ion-label>
       </ion-item>
+
       <ion-item button detail="false" color="tertiary">
         <ion-icon color="medium" slot="start" name="cube-outline"></ion-icon>
         <ion-label>
           <h3>Available Missions</h3>
         </ion-label>
       </ion-item>
+
       <ion-item button detail="false" color="tertiary">
         <ion-icon
           color="medium"
@@ -60,6 +68,7 @@
           <h3>My Missions</h3>
         </ion-label>
       </ion-item>
+
       <ion-item button detail="false" color="tertiary">
         <ion-icon color="medium" slot="start" name="chatbox-outline"></ion-icon>
         <ion-label>
@@ -70,7 +79,15 @@
   </ion-content>
 
   <ion-footer class="ion-no-border">
-    <ion-icon name="power" size="large" color="medium"></ion-icon>
+    <ion-button color="tertiary" (click)="signOut()">
+      <ion-label color="medium">Sign Out</ion-label>
+      <ion-icon
+        name="log-out-outline"
+        slot="start"
+        size="medium"
+        color="medium"
+      ></ion-icon>
+    </ion-button>
   </ion-footer>
 </ion-menu>
 

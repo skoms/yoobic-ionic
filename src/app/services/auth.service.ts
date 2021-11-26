@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private storage: StorageService) {}
+  constructor(private storage: StorageService, private router: Router) {}
 
   public async initStorage() {
     await this.storage.init();
   }
 
-  public setLoginStatus(status: boolean) {
-    this.storage.set('loggedIn', status);
+  public async setLoginStatus(status: boolean) {
+    return await this.storage.set('loggedIn', status);
   }
 
   public async getLoginStatus(): Promise<boolean> {
@@ -27,7 +28,15 @@ export class AuthService {
     if (!this.validatePassword(password)) {
       return;
     }
-    this.setLoginStatus(true);
+    this.setLoginStatus(true).then(() =>
+      this.router.navigateByUrl('/dashboard/missions')
+    );
+  }
+
+  public signOut() {
+    this.storage
+      .remove('loggedIn')
+      .then(() => this.router.navigateByUrl('/login'));
   }
 
   private validatePassword(password: string): boolean {

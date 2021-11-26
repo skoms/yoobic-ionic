@@ -35,8 +35,10 @@ export class MissionsPage implements OnInit {
   }
 
   private async getMissions() {
-    return this.missionService
-      .getMissions()
-      .subscribe((missions) => (this.missions = missions));
+    return this.missionService.getMissions().subscribe((missions) => {
+      missions.forEach((mission, index) => (mission.id = index));
+      this.missions = missions;
+      this.missionService.saveMissions(missions);
+    });
   }
 }

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" routerLink="/dashboard/missions">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Mission Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="mission" class="details">
+    <h1>Found id={{ mission.id }}</h1>
+    <div class="employer-profile">
+      <ion-avatar>
+        <ion-img [src]="mission.thumbnail"></ion-img>
+      </ion-avatar>
+      <div class="basic-info">
+        <h5 class="name">{{ mission.name }}</h5>
+        <p class="company">{{ mission.company }}</p>
+        <p class="location">{{ mission.location }}</p>
+      </div>
+      <h1 class="rating">{{ mission.rating }}/5</h1>
+    </div>
+  </div>
+  <div *ngIf="!mission" class="not-found"><h1>Not Found</h1></div>
+</ion-content>

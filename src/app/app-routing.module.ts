@@ -10,6 +10,10 @@ const routes: Routes = [
       import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),
   },
   { path: 'login', component: LoginPage },
+  {
+    path: 'mission-details',
+    loadChildren: () => import('./mission-details/mission-details.module').then( m => m.MissionDetailsPageModule)
+  },
 ];
 @NgModule({
   imports: [

@@ -3,6 +3,7 @@
     <app-mission
       *ngFor="let mission of missions"
       [mission]="mission"
+      routerLink="/dashboard/details/{{mission.id}}"
     ></app-mission>
   </div>
 

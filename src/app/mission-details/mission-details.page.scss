@@ -1,0 +1,42 @@
+.details {
+  .employer-profile {
+    display: flex;
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    justify-content: space-between;
+    width: calc(100% - 2rem);
+
+    ion-avatar {
+      height: 64px;
+      width: 64px;
+      background-color: var(--ion-color-primary-contrast);
+      border: var(--ion-color-secondary) solid 1px;
+    }
+
+    .basic-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 1rem 0 -1rem;
+      .name,
+      .company,
+      .location {
+        margin: 0;
+      }
+
+      .company,
+      .location {
+        color: var(--ion-color-medium);
+      }
+    }
+
+    .rating {
+      text-align: end;
+      font-size: 2.2rem;
+      margin: auto 0;
+    }
+  }
+}

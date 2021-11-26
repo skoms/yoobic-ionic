@@ -16,6 +16,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'details/:id',
+        loadChildren: () =>
+          import('../mission-details/mission-details.module').then(
+            (m) => m.MissionDetailsPageModule
+          ),
+      },
+      {
         path: 'notes',
         loadChildren: () =>
           import('../notes/notes.module').then((m) => m.NotesPageModule),

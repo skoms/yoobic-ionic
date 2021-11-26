@@ -36,14 +36,13 @@ ion-content {
   background: none;
 }
 
-.side-menu ion-thumbnail {
+.side-menu ion-avatar {
   margin: 10vh auto;
 
   ion-img {
     height: 12vh;
     width: 12vh;
     margin-left: -6vw; // Minus 50% of width to center
-    border-radius: 50%;
   }
 }
 

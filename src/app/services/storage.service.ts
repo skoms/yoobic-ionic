@@ -8,12 +8,16 @@ export class StorageService {
   constructor(private store: Storage) {}
 
   public async set(key: string, value: any) {
-    await this.init().then((res) => res.set(key, value));
+    return await this.init().then((res) => res.set(key, value));
   }
 
-  public async get(key: string): Promise<string> {
+  public async get(key: string): Promise<any> {
     const response = await this.init().then(async (res) => await res.get(key));
     return response;
+  }
+
+  public async remove(key: string) {
+    return await this.init().then(async (res) => await res.remove(key));
   }
 
   public async enumerate() {
@@ -26,5 +30,9 @@ export class StorageService {
 
   public async init() {
     return await this.store.create();
+  }
+
+  public clear() {
+    this.store.clear();
   }
 }
