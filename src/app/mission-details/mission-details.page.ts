@@ -29,37 +29,27 @@ export class MissionDetailsPage implements OnInit {
   }
 
   public getRatingStars(): RatingObject {
-    if (
-      !this.mission.rating.filled &&
-      !this.mission.rating.halfFilled &&
-      !this.mission.rating.empty
-    ) {
-      let rating = this.mission.rating.decimal;
-      let starCount = 0;
+    const { filled, halfFilled, empty, decimal } = this.mission.rating;
+    if (!filled && !halfFilled && !empty) {
+      let rating = decimal;
+      const [filledStars, halfFilledStars, emptyStars] = [[], [], []];
 
-      let filled = 0;
-      let halfFilled = 0;
-      let empty = 0;
-
-      while (starCount < 5) {
+      while ([...filledStars, ...halfFilledStars, ...emptyStars].length < 5) {
         if (rating >= 1) {
-          filled++;
-          starCount++;
-          rating -= 1;
+          filledStars.push('*');
+          rating--;
         } else if (rating >= 0.5) {
-          halfFilled++;
-          starCount++;
+          halfFilledStars.push('*');
           rating -= 0.5;
         } else {
-          empty++;
-          starCount++;
+          emptyStars.push('*');
         }
       }
       return {
-        decimal: this.mission.rating.decimal,
-        filled: new Array(filled).fill('*'),
-        halfFilled: new Array(halfFilled).fill('*'),
-        empty: new Array(empty).fill('*'),
+        decimal,
+        filled: filledStars,
+        halfFilled: halfFilledStars,
+        empty: emptyStars,
       };
     }
   }
