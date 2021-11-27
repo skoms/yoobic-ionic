@@ -28,4 +28,12 @@ export class DashboardPage implements OnInit {
     this.auth.signOut();
     this.menu.close('side-menu');
   }
+
+  private async ensureLogin() {
+    const loggedIn = await this.auth.getLoginStatus();
+    if (loggedIn) {
+      return;
+    }
+    this.router.navigateByUrl('/login');
+  }
 }

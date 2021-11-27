@@ -6,9 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { ActiveChatsPageRoutingModule } from './active-chats-routing.module';
 
-import { ActiveChatsPage } from './active-chats.page';
-import { ChatPreviewComponent } from '../chat-preview/chat-preview.component';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +13,6 @@ import { ChatPreviewComponent } from '../chat-preview/chat-preview.component';
     IonicModule,
     ActiveChatsPageRoutingModule,
   ],
-  declarations: [ActiveChatsPage, ChatPreviewComponent],
+  declarations: [],
 })
 export class ActiveChatsPageModule {}

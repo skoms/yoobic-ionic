@@ -10,3 +10,119 @@ ion-header {
     }
   }
 }
+
+.chat {
+  height: 100%;
+  width: 100%;
+  background: var(--ion-color-tertiary);
+  display: flex;
+  flex-direction: column;
+
+  .message {
+    margin: 1rem 1.5rem;
+    max-width: 80%;
+    * {
+      margin: 0;
+    }
+    .sender {
+      color: var(--ion-color-medium);
+    }
+
+    .content {
+      position: relative;
+      p {
+        padding: 0.5rem 1rem;
+        margin: 0.3rem 0;
+        border-radius: 0.75rem;
+      }
+    }
+
+    .time {
+      color: var(--ion-color-medium);
+    }
+  }
+
+  .message.me {
+    align-self: flex-end;
+    .sender {
+      text-align: right;
+    }
+    .content {
+      .corner {
+        position: absolute;
+        right: -20px;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border: 22px solid black;
+        background-color: transparent;
+
+        border-top-color: rgb(199, 12, 12);
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+
+        z-index: 0;
+      }
+      p {
+        background: linear-gradient(45deg, rgb(45, 15, 129), rgb(207, 11, 11));
+        color: white;
+        z-index: 1;
+      }
+    }
+    .time {
+      text-align: right;
+    }
+  }
+
+  .message.not {
+    .content {
+      .corner {
+        position: absolute;
+        left: -20px;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border: 22px solid black;
+        background-color: transparent;
+
+        border-top-color: rgb(2, 131, 236);
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+
+        z-index: 0;
+      }
+      p {
+        background: linear-gradient(-45deg, rgb(38, 77, 1), rgb(2, 131, 236));
+        color: white;
+      }
+    }
+  }
+}
+
+ion-footer {
+  background-color: var(--ion-color-light);
+  form {
+    background-color: var(--ion-color-light);
+    margin: 0.5rem 0;
+    width: 100%;
+    display: flex;
+
+    ion-button {
+      font-size: 1.5rem;
+      width: fit-content;
+      --padding-end: 0.75rem;
+      --padding-start: 0.75rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0 0.5rem;
+      background-color: var(--ion-color-secondary);
+      border: var(--ion-color-secondary-shade) solid 2px;
+      border-radius: 0.75rem;
+      color: var(--ion-color-secondary-contrast);
+    }
+  }
+}

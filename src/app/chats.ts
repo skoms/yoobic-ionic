@@ -2,7 +2,7 @@
 import { User, USERS } from './users';
 
 export interface Chat {
-  id: 1;
+  id: number;
   members: User[];
   messages: Message[];
 }
@@ -51,7 +51,7 @@ export const CHATS: Chat[] = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     members: [USERS[0], USERS[2]],
     messages: [
       {
@@ -78,7 +78,7 @@ export const CHATS: Chat[] = [
     ],
   },
   {
-    id: 1,
+    id: 3,
     members: [USERS[0], USERS[3], USERS[4]],
     messages: [
       {

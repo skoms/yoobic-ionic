@@ -1,4 +1,8 @@
-<div *ngIf="chat" class="chat-preview">
+<div
+  *ngIf="chat"
+  class="chat-preview"
+  routerLink="/dashboard/chat/{{ chat.id }}"
+>
   <h4 class="name">{{ members }}</h4>
   <div class="bottom">
     <p class="message">{{ content }}</p>

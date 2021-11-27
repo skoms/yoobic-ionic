@@ -3,7 +3,9 @@
     <ion-button fill="clear" slot="start" (click)="goBack()">
       <ion-icon name="arrow-back-outline" color="medium"></ion-icon>
     </ion-button>
-    <ion-title> Chat Partner Name </ion-title>
+    <ion-title *ngIf="chat === undefined"> Chat </ion-title>
+    <ion-title *ngIf="chat === null"> Not Found </ion-title>
+    <ion-title *ngIf="chat"> {{ members }} </ion-title>
     <ion-avatar slot="end" class="avatar">
       <ion-img
         src="https://img.icons8.com/ios-glyphs/50/92949C/user--v1.png"
@@ -12,4 +14,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <div class="chat">
+    <div class="message me">
+      <p class="sender">Sender Name (Me)</p>
+      <div class="content">
+        <div class="corner"></div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus
+          nisl, ullamcorper vel sem eget, ornare dictum velit. Cras quis laoreet
+          purus, quis eleifend nibh.
+        </p>
+      </div>
+      <p class="time">12 Jan 2021</p>
+    </div>
+    <div class="message not">
+      <p class="sender">Sender Name</p>
+      <div class="content">
+        <div class="corner"></div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus
+          nisl, ullamcorper vel sem eget, ornare dictum velit. Cras quis laoreet
+          purus, quis eleifend nibh.
+        </p>
+      </div>
+      <p class="time">12 Jan 2021</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <form name="messageEditor" (ngSubmit)="submit($event)">
+    <ion-button slot="start" fill="clear">
+      <ion-icon name="camera-outline" color="medium"></ion-icon>
+    </ion-button>
+    <input type="text" name="messageEditor" [(ngModel)]="message" />
+    <ion-button slot="end" type="submit" fill="clear">
+      <ion-icon name="send-outline" color="medium"></ion-icon>
+    </ion-button>
+  </form>
+</ion-footer>
