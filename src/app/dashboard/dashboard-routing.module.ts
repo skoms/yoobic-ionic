@@ -16,10 +16,10 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'chat',
+        path: 'chats',
         loadChildren: () =>
-          import('../chat/chat-routing.module').then(
-            (m) => m.ChatPageRoutingModule
+          import('../active-chats/active-chats-routing.module').then(
+            (m) => m.ActiveChatsPageRoutingModule
           ),
       },
       {

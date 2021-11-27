@@ -19,10 +19,20 @@ export class MissionService {
     this.storage.set('missions', missions);
   }
 
-  public async getMission(id: number): Promise<Observable<Mission>> {
-    const missions: Mission[] = await this.storage.get('missions');
-    const mission = missions.find((m) => m.id === id);
-    return of(mission); // Used for easy server implementation down the line
+  public async getMission(id: number): Promise<Observable<Mission | null>> {
+    const missions: Mission[] | undefined = await this.storage.get('missions');
+    if (missions !== undefined) {
+      const mission = missions.find((m) => m.id === id);
+      if (mission === undefined) {
+        return of(null);
+      }
+      mission.distance = await this.geolocation.getDistance(
+        mission.geoLocation
+      );
+      return of(mission); // Used for easy server implementation down the line
+    } else {
+      return of(null);
+    }
   }
 
   public getMissions(): Observable<Mission[]> {

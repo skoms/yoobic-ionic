@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'photos',
     loadChildren: () => import('./photos/photos.module').then( m => m.PhotosPageModule)
   },
+  {
+    path: 'active-chats',
+    loadChildren: () => import('./active-chats/active-chats.module').then( m => m.ActiveChatsPageModule)
+  },
 ];
 @NgModule({
   imports: [

@@ -25,7 +25,11 @@ export class MissionDetailsPage implements OnInit {
     this.missionService
       .getMission(id)
       .then((res) => res.subscribe((m) => (this.mission = m)))
-      .then(() => (this.mission.rating = this.getRatingStars()));
+      .then(() => {
+        if (this.mission !== null) {
+          this.mission.rating = this.getRatingStars();
+        }
+      });
   }
 
   public getRatingStars(): RatingObject {

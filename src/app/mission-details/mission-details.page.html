@@ -59,6 +59,9 @@
           <strong>Deadline: </strong>
           {{ mission.description.deadline | date }}
         </p>
+        <p *ngIf="mission && mission.distance">
+          <strong>Distance:</strong> {{ mission.distance }} Miles
+        </p>
       </div>
     </div>
     <div class="action-buttons">
@@ -68,5 +71,10 @@
       >
     </div>
   </div>
-  <div *ngIf="!mission" class="not-found"><h1>Not Found</h1></div>
+  <div *ngIf="!mission" class="not-found">
+    <ion-img
+      src="https://img.icons8.com/pastel-glyph/128/92949C/page-not-found--v2.png"
+    ></ion-img>
+    <h1>Not Found</h1>
+  </div>
 </ion-content>
