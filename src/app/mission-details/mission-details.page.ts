@@ -16,7 +16,7 @@ export class MissionDetailsPage implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.getMission(Number(id));
   }

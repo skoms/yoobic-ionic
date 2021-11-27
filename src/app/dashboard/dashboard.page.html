@@ -44,7 +44,12 @@
         </ion-label>
       </ion-item>
 
-      <ion-item button detail="false" color="tertiary">
+      <ion-item
+        button
+        detail="false"
+        color="tertiary"
+        (click)="goTo('/dashboard/photos')"
+      >
         <ion-icon color="medium" slot="start" name="images-outline"></ion-icon>
         <ion-label>
           <h3>Photos</h3>
