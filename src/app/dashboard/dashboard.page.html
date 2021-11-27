@@ -69,7 +69,12 @@
         </ion-label>
       </ion-item>
 
-      <ion-item button detail="false" color="tertiary">
+      <ion-item
+        button
+        detail="false"
+        color="tertiary"
+        (click)="goTo('/dashboard/chat')"
+      >
         <ion-icon color="medium" slot="start" name="chatbox-outline"></ion-icon>
         <ion-label>
           <h3>Chat</h3>
@@ -79,7 +84,7 @@
   </ion-content>
 
   <ion-footer class="ion-no-border">
-    <ion-button color="tertiary" (click)="signOut()">
+    <ion-button fill="clear" (click)="signOut()">
       <ion-label color="medium">Sign Out</ion-label>
       <ion-icon
         name="log-out-outline"
@@ -95,15 +100,23 @@
   <ion-tabs>
     <ion-tab-bar slot="top" class="tab-bar">
       <ion-tab-button tab="missions">
-        <ion-label>MISSIONS</ion-label>
+        <ion-icon name="cube-outline"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="chat">
+        <ion-icon name="chatbox-outline"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="photos">
+        <ion-icon name="images-outline"></ion-icon>
       </ion-tab-button>
 
       <ion-tab-button tab="notes">
-        <ion-label>NOTES</ion-label>
+        <ion-icon name="document-outline"></ion-icon>
       </ion-tab-button>
 
       <ion-tab-button tab="request">
-        <ion-label>REQUEST</ion-label>
+        <ion-icon name="open-outline"></ion-icon>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

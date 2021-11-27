@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { GeoLocationService } from './geo-location.service';
 
 import { MISSIONS, Mission } from '../missions';
 import { StorageService } from './storage.service';
@@ -10,7 +10,10 @@ import { StorageService } from './storage.service';
 })
 export class MissionService {
   missions: Mission[] = [];
-  constructor(private storage: StorageService, private router: Router) {}
+  constructor(
+    private storage: StorageService,
+    private geolocation: GeoLocationService
+  ) {}
 
   public saveMissions(missions: Mission[]) {
     this.storage.set('missions', missions);
@@ -24,6 +27,14 @@ export class MissionService {
 
   public getMissions(): Observable<Mission[]> {
     this.missions = [...this.missions, ...MISSIONS];
+    this.missions.forEach(async (mission) => {
+      const distanceInMiles = await this.geolocation.getDistance(
+        mission.geoLocation
+      );
+      mission.distance = `${distanceInMiles} Mile${
+        Number(distanceInMiles) !== 1 ? 's' : ''
+      }`;
+    });
     return of(this.missions); // Used for easy server implementation down the line
   }
 

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="start" routerLink="/dashboard/missions">
-      <ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-button slot="start" routerLink="/dashboard/missions" fill="clear">
+      <ion-icon name="arrow-back-outline" color="medium"></ion-icon>
     </ion-button>
     <ion-title>Mission Details</ion-title>
   </ion-toolbar>
@@ -9,7 +9,6 @@
 
 <ion-content>
   <div *ngIf="mission" class="details">
-    <h1>Found id={{ mission.id }}</h1>
     <div class="employer-profile">
       <div class="profile-header">
         <ion-avatar>
@@ -41,6 +40,32 @@
         </div>
         <h1 class="decimal">{{ mission.rating.decimal }}/5</h1>
       </div>
+    </div>
+    <div class="main-content">
+      <ion-img [src]="mission.picture"></ion-img>
+      <div class="description">
+        <h1 class="title">{{ mission.description.title }}</h1>
+        <p class="intro">
+          <strong>Mission Summary: </strong
+          ><em>{{ mission.description.intro }}</em>
+        </p>
+
+        <p class="description-details">
+          <strong>Details: </strong>
+          {{ mission.description.details }}
+        </p>
+
+        <p class="deadline">
+          <strong>Deadline: </strong>
+          {{ mission.description.deadline | date }}
+        </p>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <ion-button class="accept-button" fill="solid">Accept Mission</ion-button>
+      <ion-button class="reject-button" fill="outline"
+        >Reject Mission</ion-button
+      >
     </div>
   </div>
   <div *ngIf="!mission" class="not-found"><h1>Not Found</h1></div>

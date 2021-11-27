@@ -1,0 +1,12 @@
+ion-header {
+  ion-toolbar {
+    padding: 0 1rem;
+    .avatar {
+      padding: 3px;
+      border: var(--ion-color-light) solid 2px;
+      background-color: var(--ion-color-light-contrast);
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}

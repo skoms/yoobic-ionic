@@ -12,6 +12,13 @@ import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Storage } from '@capacitor/storage';
 import { Platform } from '@ionic/angular';
 
+//! ACQUIRED THROUGH OFFICIAL IONIC GETTING-STARTED TUTORIAL
+
+export interface Photo {
+  filepath: string;
+  webviewPath: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -104,7 +111,6 @@ export class PhotoService {
 
     if (this.platform.is('hybrid')) {
       // Displays the new image by rewriting the 'file://' path to HTTP
-      // Details: https://ionicframework.com/docs/building/webview#file-protocol
       return {
         filepath: savedFile.uri,
         webviewPath: Capacitor.convertFileSrc(savedFile.uri),
@@ -134,9 +140,4 @@ export class PhotoService {
       return (await this.convertBlobToBase64(blob)) as string;
     }
   }
-}
-
-export interface Photo {
-  filepath: string;
-  webviewPath: string;
 }

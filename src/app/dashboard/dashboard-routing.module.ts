@@ -16,10 +16,17 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'details/:id',
+        path: 'chat',
         loadChildren: () =>
-          import('../mission-details/mission-details.module').then(
-            (m) => m.MissionDetailsPageModule
+          import('../chat/chat-routing.module').then(
+            (m) => m.ChatPageRoutingModule
+          ),
+      },
+      {
+        path: 'photos',
+        loadChildren: () =>
+          import('../photos/photos-routing.module').then(
+            (m) => m.PhotosPageRoutingModule
           ),
       },
       {
@@ -31,6 +38,13 @@ const routes: Routes = [
         path: 'request',
         loadChildren: () =>
           import('../request/request.module').then((m) => m.RequestPageModule),
+      },
+      {
+        path: 'details/:id',
+        loadChildren: () =>
+          import('../mission-details/mission-details.module').then(
+            (m) => m.MissionDetailsPageModule
+          ),
       },
       {
         path: '',
