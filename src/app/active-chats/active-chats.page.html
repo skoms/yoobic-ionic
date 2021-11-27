@@ -8,5 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <app-chat-preview></app-chat-preview>
+  <ion-list>
+    <app-chat-preview
+      *ngFor="let chat of chatService.chatHistories"
+      [chat]="chat"
+    ></app-chat-preview>
+  </ion-list>
 </ion-content>

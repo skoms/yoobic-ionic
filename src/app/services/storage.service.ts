@@ -32,7 +32,7 @@ export class StorageService {
     return await this.store.create();
   }
 
-  public clear() {
-    this.store.clear();
+  public async clear() {
+    return await this.store.clear();
   }
 }

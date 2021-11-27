@@ -1,3 +1,10 @@
-<p>
-  chat-preview works!
-</p>
+<div *ngIf="chat" class="chat-preview">
+  <h4 class="name">{{ members }}</h4>
+  <div class="bottom">
+    <p class="message">{{ content }}</p>
+    <div class="time">
+      <p>{{ time | date: "MMM d" }}</p>
+      <p>{{ time | date: "shortTime" }}</p>
+    </div>
+  </div>
+</div>

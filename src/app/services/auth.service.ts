@@ -12,7 +12,7 @@ export class AuthService {
     await this.storage.init();
   }
 
-  public async setLoginStatus(status: boolean) {
+  public async setLoginStatus(status: boolean): Promise<void> {
     return await this.storage.set('loggedIn', status);
   }
 
@@ -28,22 +28,21 @@ export class AuthService {
     if (!this.validatePassword(password)) {
       return;
     }
+    this.storage.set('loggedInAs', 1); // Logs in as User ID 1 for simplicity
     this.setLoginStatus(true).then(() =>
       this.router.navigateByUrl('/dashboard/missions')
     );
   }
 
-  public signOut() {
-    this.storage
-      .remove('loggedIn')
-      .then(() => this.router.navigateByUrl('/login'));
+  public signOut(): void {
+    this.storage.clear().then(() => this.router.navigateByUrl('/login'));
   }
 
   private validatePassword(password: string): boolean {
-    return /test/.test(password);
+    return /^[A-Za-z0-9]{8,}$/.test(password);
   }
 
   private validateEmail(email: string): boolean {
-    return /test/.test(email);
+    return /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(email);
   }
 }
