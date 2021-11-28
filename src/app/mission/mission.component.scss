@@ -1,14 +1,11 @@
 .mission {
-  justify-self: center;
   border-radius: 0.25rem;
-  background: white;
-  max-width: 95vw;
+  background: var(--ion-item-background, #fff);
   margin-top: 1rem;
 
   .header-section {
     font-size: 0.9rem;
     padding: 0.5rem;
-    padding-bottom: 0;
     display: flex;
 
     .profile-picture {
@@ -28,6 +25,7 @@
 
       p {
         margin: 0.5rem 0 -0.4rem 0;
+        color: var(--ion-color-primary);
       }
 
       .left-side {
@@ -37,12 +35,12 @@
       .right-side {
         text-align: right;
       }
-    }
 
-    .location,
-    .date,
-    .distance {
-      color: var(--ion-color-medium);
+      .location,
+      .date,
+      .distance {
+        color: var(--ion-color-medium);
+      }
     }
   }
 
@@ -50,6 +48,10 @@
     min-width: 100%;
     border: var(--ion-color-tertiary-shade) solid 1px;
     background: var(--ion-color-tertiary);
+  }
+
+  .content {
+    height: fit-content;
   }
 
   .description-section {

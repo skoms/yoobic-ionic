@@ -1,5 +1,5 @@
-<div class="mission">
-  <section class="header-section">
+<ion-card class="mission" href="/dashboard/details/{{ mission.id }}">
+  <ion-card-header class="header-section">
     <ion-avatar class="profile-picture">
       <ion-img [src]="mission.thumbnail"></ion-img>
     </ion-avatar>
@@ -13,12 +13,18 @@
         <p class="distance">{{ mission.distance }}</p>
       </div>
     </div>
-  </section>
+  </ion-card-header>
+
   <section class="image-section">
     <ion-img [src]="mission.picture"></ion-img>
   </section>
-  <section class="description-section">
-    <h4 class="title">{{ mission.description.title }}</h4>
-    <p class="description">{{ mission.description.intro }}</p>
-  </section>
-</div>
+
+  <ion-card-content class="content">
+    <ion-text class="description-section">
+      <ion-card-title class="title">{{
+        mission.description.title
+      }}</ion-card-title>
+      <p class="description">{{ mission.description.intro }}</p>
+    </ion-text>
+  </ion-card-content>
+</ion-card>

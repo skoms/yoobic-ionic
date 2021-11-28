@@ -17,7 +17,7 @@ ion-content {
 
     ion-img {
       padding: 0.3rem;
-      background: white;
+      background: var(--ion-item-background);
     }
   }
 
@@ -42,7 +42,8 @@ ion-content {
 }
 
 .login-inputs ion-item {
-  --background: white;
+  --background: var(--ion-color-light);
+  color: var(--ion-color-light-contrast);
   margin: 1px 20px;
   width: 90%;
   max-width: 400px;

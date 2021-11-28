@@ -1,6 +1,7 @@
 /* Header styling */
 ion-toolbar {
   --border-style: none;
+  --background: var(--ion-toolbar-background, var(--ion-color-step-150, #fff));
 }
 
 .header-toolbar {
@@ -64,6 +65,10 @@ ion-content {
 
   ion-item {
     margin: 0 0 3vh 0;
+
+    ion-label {
+      color: var(--ion-color-primary);
+    }
   }
 }
 

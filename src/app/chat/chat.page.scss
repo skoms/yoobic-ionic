@@ -121,22 +121,28 @@ ion-content {
 }
 
 ion-footer {
-  background-color: var(--ion-color-light);
+  background-color: var(--ion-toolbar-background, #fff);
   form {
-    background-color: var(--ion-color-light);
-    margin: 0.5rem 0;
+    background-color: var(--ion-toolbar-background, #fff);
+    margin: 0;
+    max-height: 3rem;
     width: 100%;
     display: flex;
+    align-items: center;
 
     ion-button {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       width: fit-content;
       --padding-end: 0.75rem;
       --padding-start: 0.75rem;
+      --padding-top: 0.75rem;
+      --padding-bottom: 0.75rem;
     }
 
     input {
       width: 100%;
+      line-height: 1.5rem;
+      max-height: 100%;
       padding: 0 0.5rem;
       background-color: var(--ion-color-secondary);
       border: var(--ion-color-secondary-shade) solid 2px;

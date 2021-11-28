@@ -9,9 +9,9 @@
       <ion-img src="../../assets/images/logo.png"></ion-img>
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-menu-button menu="options">
         <ion-icon class="options-icon" name="options-outline"></ion-icon>
-      </ion-button>
+      </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -35,7 +35,7 @@
         (click)="goTo('/dashboard/missions')"
       >
         <ion-icon
-          color="medium"
+          color="primary"
           slot="start"
           name="clipboard-outline"
         ></ion-icon>
@@ -50,14 +50,14 @@
         color="tertiary"
         (click)="goTo('/dashboard/photos')"
       >
-        <ion-icon color="medium" slot="start" name="images-outline"></ion-icon>
+        <ion-icon color="primary" slot="start" name="images-outline"></ion-icon>
         <ion-label>
           <h3>Photos</h3>
         </ion-label>
       </ion-item>
 
       <ion-item button detail="false" color="tertiary">
-        <ion-icon color="medium" slot="start" name="cube-outline"></ion-icon>
+        <ion-icon color="primary" slot="start" name="cube-outline"></ion-icon>
         <ion-label>
           <h3>Available Missions</h3>
         </ion-label>
@@ -65,7 +65,7 @@
 
       <ion-item button detail="false" color="tertiary">
         <ion-icon
-          color="medium"
+          color="primary"
           slot="start"
           name="checkbox-outline"
         ></ion-icon>
@@ -80,7 +80,11 @@
         color="tertiary"
         (click)="goTo('/dashboard/chats')"
       >
-        <ion-icon color="medium" slot="start" name="chatbox-outline"></ion-icon>
+        <ion-icon
+          color="primary"
+          slot="start"
+          name="chatbox-outline"
+        ></ion-icon>
         <ion-label>
           <h3>Chat</h3>
         </ion-label>
@@ -90,15 +94,35 @@
 
   <ion-footer class="ion-no-border">
     <ion-button fill="clear" (click)="signOut()">
-      <ion-label color="medium">Sign Out</ion-label>
+      <ion-label color="primary">Sign Out</ion-label>
       <ion-icon
         name="log-out-outline"
         slot="start"
         size="medium"
-        color="medium"
+        color="primary"
       ></ion-icon>
     </ion-button>
   </ion-footer>
+</ion-menu>
+
+<ion-menu side="end" menuId="options" class="options" contentId="main">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title>Options</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Dark Mode</ion-label>
+        <ion-toggle
+          [(ngModel)]="darkMode"
+          (ionChange)="toggleDarkMode()"
+        ></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-menu>
 
 <ion-content id="main">
