@@ -26,13 +26,32 @@ export class ChatService {
     return of(chat ? chat : null);
   }
 
+  public async sendMessage(
+    msg: Message,
+    chatId: number
+  ): Promise<Observable<Chat>> {
+    await this.getChatHistories(msg.sender.id);
+    console.log(this.chatHistories);
+    this.chatHistories = this.chatHistories.map((c) => {
+      if (c.id !== chatId) {
+        return c;
+      }
+      c.messages.push(msg);
+      return c;
+    });
+    console.log(this.chatHistories);
+    await this.saveChats(this.chatHistories);
+    const chat = await this.getChatHistory(chatId, msg.sender.id);
+    return chat;
+  }
+
   public async getChatHistories(userId: number): Promise<void> {
     return await this.storage.get('chats').then((res: Chat[]) => {
       if (res) {
         this.chatHistories = this.getChatsIfMember(res, userId);
       } else {
         this.chatHistories = this.getChatsIfMember(CHATS, userId);
-        this.storage.set('chats', this.chatHistories);
+        this.saveChats(this.chatHistories);
       }
     });
   }
@@ -68,5 +87,9 @@ export class ChatService {
     return chats.filter((chat) =>
       chat.members.find((member) => member.id === userId)
     );
+  }
+
+  private async saveChats(chats: Chat[]) {
+    await this.storage.set('chats', chats);
   }
 }
