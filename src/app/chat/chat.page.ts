@@ -5,7 +5,7 @@ import { IonContent } from '@ionic/angular';
 import { Chat } from '../chats';
 import { ChatService } from '../services/chat.service';
 import { StorageService } from '../services/storage.service';
-import { USERS } from '../users';
+import { User, USERS } from '../users';
 
 @Component({
   selector: 'app-chat',
@@ -34,7 +34,7 @@ export class ChatPage implements OnInit {
     this.userId = await this.storage.get('loggedInAs');
     this.chatId = Number(this.route.snapshot.paramMap.get('id'));
     await this.getChat();
-    this.members = await this.chatService.getMembers(this.chat);
+    this.members = await this.chatService.getMembersNameString(this.chat);
     this.content.scrollToBottom(1);
   }
 
@@ -45,20 +45,10 @@ export class ChatPage implements OnInit {
   public async submit(e) {
     e.preventDefault();
     const user = USERS.find((u) => u.id === this.userId);
-    this.chatService
-      .sendMessage(
-        {
-          content: this.message,
-          sender: user,
-          time: new Date().toLocaleString(),
-        },
-        this.chatId
-      )
-      .then((res) => {
-        res.subscribe((c) => (this.chat = c));
-      })
-      .then(() => this.content.scrollToBottom(1));
+    const target = USERS.find((u) => u.id !== this.userId);
+    this.sendMessage(user, this.message);
     this.message = '';
+    this.simulateResponse(target);
     console.log('sent');
   }
 
@@ -66,5 +56,33 @@ export class ChatPage implements OnInit {
     (await this.chatService.getChatHistory(this.chatId, this.userId)).subscribe(
       (c) => (this.chat = c)
     );
+  }
+
+  private async sendMessage(sender: User, content: string) {
+    this.chatService
+      .sendMessage(
+        {
+          content,
+          sender,
+          time: new Date().toLocaleString(),
+        },
+        this.chatId,
+        this.userId
+      )
+      .then((res) => {
+        res.subscribe((c) => (this.chat = c));
+      })
+      .then(() => this.content.scrollToBottom(1));
+  }
+
+  private async simulateResponse(sender: User) {
+    this.typing = true;
+    setTimeout(() => {
+      this.typing = false;
+
+      const content =
+        'Wow thats really cool! Almost as cool as this automated response!';
+      this.sendMessage(sender, content);
+    }, 5000);
   }
 }

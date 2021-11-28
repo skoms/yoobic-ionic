@@ -28,10 +28,10 @@ export class ChatService {
 
   public async sendMessage(
     msg: Message,
-    chatId: number
+    chatId: number,
+    userId: number
   ): Promise<Observable<Chat>> {
-    await this.getChatHistories(msg.sender.id);
-    console.log(this.chatHistories);
+    await this.getChatHistories(userId);
     this.chatHistories = this.chatHistories.map((c) => {
       if (c.id !== chatId) {
         return c;
@@ -39,9 +39,8 @@ export class ChatService {
       c.messages.push(msg);
       return c;
     });
-    console.log(this.chatHistories);
     await this.saveChats(this.chatHistories);
-    const chat = await this.getChatHistory(chatId, msg.sender.id);
+    const chat = await this.getChatHistory(chatId, userId);
     return chat;
   }
 
@@ -56,7 +55,7 @@ export class ChatService {
     });
   }
 
-  public async getMembers(chat: Chat): Promise<string> {
+  public async getMembersNameString(chat: Chat): Promise<string> {
     const id = await this.storage.get('loggedInAs');
     const members = chat.members.filter((member) => member.id !== id);
     return members.length > 1
@@ -72,8 +71,8 @@ export class ChatService {
     const lastMessage = this.getLastMessage(chat);
     const sender = lastMessage.sender.name;
     const content =
-      lastMessage.content.length > 30
-        ? lastMessage.content.slice(0, 30) + '...'
+      lastMessage.content.length > 60
+        ? lastMessage.content.slice(0, 60) + '...'
         : lastMessage.content;
 
     return `${sender}: ${content}`;

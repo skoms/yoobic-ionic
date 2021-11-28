@@ -16,7 +16,7 @@ export class ChatPreviewComponent implements OnInit {
   constructor(private chatService: ChatService) {}
 
   async ngOnInit() {
-    this.members = await this.chatService.getMembers(this.chat);
+    this.members = await this.chatService.getMembersNameString(this.chat);
     this.time = this.chatService.getLastMessageTime(this.chat);
     this.content = this.chatService.getLastMessageContent(this.chat);
   }

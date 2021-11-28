@@ -17,7 +17,7 @@ ion-content {
 }
 
 .chat {
-  padding: 1rem 0 3rem 0;
+  padding: 1rem 0 0 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -102,9 +102,6 @@ ion-content {
   }
 
   .typing {
-    position: absolute;
-    left: 0.5rem;
-    bottom: 0.5rem;
     display: flex;
     height: 3.5rem;
     font-size: 2rem;
