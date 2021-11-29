@@ -38,3 +38,34 @@ npm install
    ```
    npx ionic cap open ios
    ```
+
+## Functional Parts:
+
+### Pages:
+
+- active-chats: List of active chats
+- chat: A specific chat
+- dashboard: The main 'home' page with tabs
+- login: A simple login page, uses simple login regex and alphanumerical, 8+ regex: `/^[A-Za-z0-9]{8,}$/` for password
+- mission-details: Details of a specific mission opened from the mission cards in the main missions feed
+- missions: main tab of the dashboard and main feed for mission cards
+- photos: Photo gallery with function to take pictures
+
+### Components
+
+- chat-preview: Component used in 'active-chats' to show the active chats in a list
+- mission: mission card component
+
+### Empty Placeholders
+
+- notes (tab/page)
+- request (tab/page)
+
+### Services
+
+- auth: Authentication Management (very basic)
+- chat: Chat Related
+- geo-location: Geo Location to get position and distance to a different position
+- mission: Mission(s) Related
+- photo: Camera and Photo Related
+- storage: Storage related for saving and fetching from local storages
